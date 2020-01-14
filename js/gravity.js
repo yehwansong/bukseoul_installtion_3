@@ -38,22 +38,14 @@ var Engine = Matter.Engine,
     // add bodies
     var ground = Bodies.rectangle(w/2, h+25, w, 50, { isStatic: true })
     var face1 = Bodies.circle(100, -100, 100,{ isStatic: true ,render: {fillStyle: 'red'}});
-    	// face1.restitution = 0.99
-    var elem1 = Bodies.circle(100, 200 - h/2, 100,{render: {fillStyle: 'yellow'}});
-    	elem1.restitution = 0.99
-    var elem2 = Bodies.circle(300, 200 - h/2, 100,{render: {fillStyle: 'yellow'}});
-    	elem2.restitution = 0.99
-    var elem3 = Bodies.circle(350, 50  - h/2, 50,{render: {fillStyle: 'yellow'}});
-    	elem3.restitution = 0.99
-    var elem4 = Bodies.circle(450, 50  - h/2, 50,{render: {fillStyle: 'yellow'}});
-    	elem4.restitution = 0.99
-    var elem5 = Bodies.circle(600, 150 - h/2, 50,{render: {fillStyle: 'yellow'}});
-    	elem5.restitution = 0.99
-    var elem6 = Bodies.circle(700, 150 - h/2, 50,{render: {fillStyle: 'yellow'}});
-    	elem6.restitution = 0.99
-    var elem7 = Bodies.circle(800, 150 - h/2, 50,{render: {fillStyle: 'yellow'}});
-    	elem7.restitution = 0.99
 
+    var elem1 = Bodies.circle(100, 200 - h/2, 100,{restitution : 0.5, density: 1000000, render: {fillStyle: 'blue'}});
+    var elem2 = Bodies.circle(300, 200 - h/2, 100,{restitution : 0.5, density: 1000000, render: {fillStyle: 'blue'}});
+    var elem3 = Bodies.circle(350, 50  - h/2, 50, {restitution : 0.99, render: {fillStyle: 'yellow'}});
+    var elem4 = Bodies.circle(450, 50  - h/2, 50, {restitution : 0.99, render: {fillStyle: 'yellow'}});
+    var elem5 = Bodies.circle(600, 150 - h/2, 50, {restitution : 0.99, render: {fillStyle: 'yellow'}});
+    var elem6 = Bodies.circle(700, 150 - h/2, 50, {restitution : 0.99, render: {fillStyle: 'yellow'}});
+    var elem7 = Bodies.circle(800, 150 - h/2, 50, {restitution : 0.5, density: 1000000, render: {fillStyle: 'blue'} });
 
     World.add(world, [
         ground,

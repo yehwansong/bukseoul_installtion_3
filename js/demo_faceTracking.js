@@ -43,7 +43,7 @@ const SETTINGS={
                     //draw a border around the face
                     var faceCoo=CVD.getCoordinates(detectState[i]);
                     // -1~1
-                    Body.setPosition(face1, { x: map_range(detectState[i].x, -1, 1, 0, w), y:map_range(detectState[i].y, 1, -1, 0, h)}); 
+                    Body.setPosition(face1, { x: map_range(detectState[i].x, 1, -1, 0, w), y:map_range(detectState[i].y, 1, -1, 0, h)}); 
                     setTimeout(function(){
                         // engine.world.gravity.y = 0.5;
                     }, 1000);
