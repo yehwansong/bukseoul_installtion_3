@@ -37,6 +37,8 @@ var Engine = Matter.Engine,
 
     // add bodies
     var ground = Bodies.rectangle(w/2, h+25, w, 50, { isStatic: true })
+    var wall1 = Bodies.rectangle(-25, h/2, 50, h, { isStatic: true })
+    var wall2 = Bodies.rectangle(w+25, h/2, 50, h, { isStatic: true })
     var face1 = Bodies.circle(100, -100, 100,{ isStatic: true ,render: {fillStyle: 'red'}});
 
     var elem1 = Bodies.circle(100, 200 - h/2, 100,{restitution : 0.5, density: 1000000, render: {fillStyle: 'blue'}});
@@ -49,6 +51,8 @@ var Engine = Matter.Engine,
 
     World.add(world, [
         ground,
+        wall1,
+        wall2,
         face1,
         elem1,
         elem2,
