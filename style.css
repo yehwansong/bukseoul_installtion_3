@@ -17,6 +17,7 @@
         top: 0;
         transform: translateX(-50%)
       }
+      #face_wrap_wrap,
       #jeeFaceFilterCanvas{
         position: absolute;
         z-index: 0;
@@ -24,19 +25,23 @@
         top: 0;
         transform: translateX(-50%) scaleX(-1)
       }
+      #face_wrap_wrap{
+        transform: translateX(-50%);
+        z-index: 1000;
+      }
       body{
         transform: scale(0.9);
       }
       #face_wrap{
+        transform: translateX(-50%);
         width: 150px;
         height: 150px;
-        position: fixed;
+        position: absolute;
         left: 0;
         top: 0;
         z-index: 1000;
       }
       #face_wrap>div{
-      	display: none;
         position: absolute;
         left: 0;
         top: 0;
@@ -48,32 +53,26 @@
         height: 100%;
 
       }
+      .face_ani{
+        transform: scaleY(4.5) scaleX(1.5);
+        transform-origin: center 47%;
+      }
       #face_1{
-        background-image: url(ver_1.png);
+        background-image: url(face-01.png);
+        display: none;
       }
       #face_2{
-        background-image: url(ver_2.png);
+        background-image: url(face-02.png);
+        display: block;
+        transition: 1s cubic-bezier(0,.71,.21,1.45)
       }
       #face_3{
-        background-image: url(ver_3.png);
+        background-image: url(face-03.png);
+        display: none;
       }
       #face_4{
-        background-image: url(ver_4.png);
-      }
-      #face_5{
-        background-image: url(hor_1.png);
-      }
-      #face_6{
-        background-image: url(hor_2.png);
-      }
-      #face_7{
-        background-image: url(hor_3.png);
-      }
-      #face_8{
-        background-image: url(hor_4.png);
-      }
-      #face_9{
-        background-image: url(hor_5.png);
+        background-image: url(face-04.png);
+        display: none;
       }
       .abs_show{
         opacity:1 !important;

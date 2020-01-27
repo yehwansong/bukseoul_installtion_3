@@ -46,9 +46,9 @@ var obs = []
     var fuck = Vertices.fromPath('136.06 0 68.04 0 68.04 64.06 0.01 64.06 0.01 96.09 0 96.1 0 97.01 204.09 97.01 204.09 64.06 136.06 64.06 136.06 0')
     var tri1 = Vertices.fromPath('16.7,5 162.3,5 89.1,48.6 ')
     var tri2 = Vertices.fromPath('71.1,9.1 10.3,116.7 132,116.7')
-    var blue_fric = 0.5
-    var yellow_fric = 0.1
+    var blue_fric = 0.1
     var red_fric = 0.05
+    var yellow_fric = 0.01
     var render_setting = [
         // blue
         {friction: 1, frictionAir: blue_fric, restitution : 0, render: {fillStyle: '#0d3388'}},

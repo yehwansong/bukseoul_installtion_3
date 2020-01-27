@@ -47,8 +47,8 @@ var obs = []
     var tri1 = Vertices.fromPath('16.7,5 162.3,5 89.1,48.6 ')
     var tri2 = Vertices.fromPath('71.1,9.1 10.3,116.7 132,116.7')
     var blue_fric = 0.5
-    var yellow_fric = 0.1
-    var red_fric = 0.05
+    var red_fric = 0.1
+    var yellow_fric = 0.05
     var render_setting = [
         // blue
         {friction: 1, frictionAir: blue_fric, restitution : 0, render: {fillStyle: '#0d3388'}},
@@ -152,16 +152,17 @@ var obs = []
         ['svg',9,-1,tri2 ,       1, 3],
 
 
-        ['cir',  1,  8, 1.5 ,      3, 1],
+        ['cir',  1,  8, 1.5 ,      3, 3],
 
-        ['rec',4,8.5,2.5,1.25 ,    1, 1],
+        ['rec',4,8.5,2.5,1.25 ,    1, 3],
 
-        ['rec',4,-3.5,3.5,2  ,    0, 5],
+        ['rec',4,-3.5,3.5,2  ,    0, 3],
     ]
 
     function adding_obj(elem, sec){
         obs.push(elem)
-         setTimeout(function(){World.add(world, elem);}, 000);
+        console.log(sec)
+         setTimeout(function(){World.add(world, elem);}, sec*2000);
     }
 $('document').ready(function(){
     $('#face_wrap').css({'margin-left':'-75px'})
@@ -232,35 +233,35 @@ adding_obj(dummy,5)
 
 
     var chain_2=[
-        ['cir',1,    5,0.2],
-        ['cir',1.2, 5, 0.2],
-        ['cir',1.4, 5 ,0.2],
-        ['cir',1.6, 5, 0.2],
-        ['cir',1.8, 5 ,0.2],
-        ['cir',2, 5 ,0.2],
-        ['cir',2.2, 5,0.2],
-        ['cir',2.4, 5 ,0.2],
-        ['cir',2.6, 5,0.2],
-        ['cir',2.8, 5,0.2],
-        ['cir',3, 5   ,0.2],
-        ['cir',3.2, 5,0.2],
-        ['cir',3.4, 5 ,0.2],
-        ['cir',3.6, 5,0.2],
-        ['cir',3.8, 5,0.2],
-        ['cir',4, 5   ,0.2],
-        ['cir',4.2, 5,0.2],
-        ['cir',4.4, 5 ,0.2],
-        ['cir',4.6, 5,0.2],
-        ['cir',4.8, 5,0.2],
-        ['cir',5, 5   ,0.2],
-        ['cir',5.2, 5,0.2],
-        ['cir',5.4, 5 ,0.2],
-        ['cir',5.6, 5,0.2],
-        ['cir',5.8, 5,0.2],
-        ['cir',6, 5   ,0.2],
-        ['cir',6.2, 5,0.2],
-        ['cir',6.5, 5 ,0.2],
-        ['cir',6.6, 5,0.2]
+        ['cir',1,   0,0.2],
+        ['cir',1.2, 0, 0.2],
+        ['cir',1.4, 0 ,0.2],
+        ['cir',1.6, 0, 0.2],
+        ['cir',1.8, 0 ,0.2],
+        ['cir',2,   0 ,0.2],
+        ['cir',2.2, 0,0.2],
+        ['cir',2.4, 0 ,0.2],
+        ['cir',2.6, 0,0.2],
+        ['cir',2.8, 0,0.2],
+        ['cir',3,   0   ,0.2],
+        ['cir',3.2, 0,0.2],
+        ['cir',3.4, 0 ,0.2],
+        ['cir',3.6, 0,0.2],
+        ['cir',3.8, 0,0.2],
+        ['cir',4,   0   ,0.2],
+        ['cir',4.2, 0,0.2],
+        ['cir',4.4, 0 ,0.2],
+        ['cir',4.6, 0,0.2],
+        ['cir',4.8, 0,0.2],
+        ['cir',5,   0   ,0.2],
+        ['cir',5.2, 0,0.2],
+        ['cir',5.4, 0 ,0.2],
+        ['cir',5.6, 0,0.2],
+        ['cir',5.8, 0,0.2],
+        ['cir',6,   0   ,0.2],
+        ['cir',6.2, 0,0.2],
+        ['cir',6.5, 0 ,0.2],
+        ['cir',6.6, 0,0.2]
         ]
         var chain_array_2 = []
         var constraint_array_2 = []
