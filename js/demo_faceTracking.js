@@ -1,23 +1,23 @@
 
-    var w = 1000
-    var h = 1000
-    var movingamount = 0
+var w = 1000
+var h = 1000
 
-var hideface1  = 0
+
+var movingamount = [0,0,0,0]
+var hideface = [0,0,0,0]
 $('document').ready(function(){
-var canv = document.createElement('canvas');
-canv.id = 'jeeFaceFilterCanvas';
-canv.width = w
-canv.height = h
-$('#face_wrap_wrap').css({'width':w})
-$('#face_wrap_wrap').css({'height':h})
+    var canv = document.createElement('canvas');
+    canv.id = 'jeeFaceFilterCanvas';
+    canv.width = w
+    canv.height = h
+    $('#face_wrap_wrap').css({'width':w})
+    $('#face_wrap_wrap').css({'height':h})
 
-document.body.appendChild(canv); // adds the canvas to the body element
-document.getElementsByTagName('body')[0].appendChild(canv)
-main()
+    document.getElementsByTagName('body')[0].appendChild(canv)
+    main()
 })
 function main(){
-    var CVD; //return of Canvas2DDisplay
+        var CVD; //return of Canvas2DDisplay
 
         var or_x = 0;
         var or_y = 0;
@@ -40,44 +40,86 @@ const SETTINGS={
             CVD = JEEFACEFILTERAPI.Canvas2DDisplay(spec);
             CVD.ctx.strokeStyle='#ffffffff';
             CVD.ctx.lineWidth=0;
-        }, //end callbackReady()
-        //called at each render iteration (drawing loop)
+        },
         callbackTrack: function(detectState){
             CVD.ctx.clearRect(0,0,CVD.canvas.width, CVD.canvas.height);
+            // console.log(detectState)
             for (var i = detectState.length - 1; i >= 0; i--) {
-                if (detectState[i].detected>0.3){
-                        movingamount++ 
-                        hideface1 = 0
-                        if(movingamount>100){
-                            face_change(detectState);
-                        }
+                if (detectState[i].detected>0.5){
+                        movingamount[i] = movingamount[i]+1
+                        hideface[i] = 0
+                        if(movingamount[i]>10){
                         $('.face_ani').removeClass('face_ani')
                         var faceCoo=CVD.getCoordinates(detectState[i]);
-
-                        $('#face_wrap').css({'transform':'rotateX('+ map_range(detectState[i].rx, 1, -1, 90, -90)  +'deg) \
+                            // console.log(map_range(detectState[i].x, 1, -1, 0, w))
+                            if(i == 0){ 
+                                Body.setPosition(face1, { x: map_range(detectState[i].x, 1, -1, 0, w) , y:map_range(detectState[i].y, 1, -1, 0, h)}); 
+                                face_change(detectState[0], 0)
+                                $('#face_wrap_1').css({top:map_range(detectState[i].y, 1, -1, 0, h)})
+                                $('#face_wrap_1').css({left:map_range(detectState[i].x, 1, -1, 0, w)})
+                                $('#face_wrap_1').css({'transform':'rotateX('+ map_range(detectState[i].rx, 1, -1, 90, -90)  +'deg) \
                                                 rotateY('+ map_range(detectState[i].ry, 1, -1, 90, -90)  +'deg) \
                                                 rotateZ('+ map_range(detectState[i].rz, 1, -1, 90, -90)  +'deg) translateZ(-75px)'})
-                            $('#face_wrap').css({top:map_range(detectState[i].y, 1, -1, 0, h)})
-                            $('#face_wrap').css({left:map_range(detectState[i].x, 1, -1, 0, w)})
-                            Body.setPosition(face1, { x: map_range(detectState[i].x, 1, -1, 0, w) , y:map_range(detectState[i].y, 1, -1, 0, h)}); 
-                    
+                            }
+                            if(i == 1){
+                                Body.setPosition(face2, { x: map_range(detectState[i].x, 1, -1, 0, w) , y:map_range(detectState[i].y, 1, -1, 0, h)}); 
+                                face_change(detectState[1], 1)
+                                $('#face_wrap_2').css({top:map_range(detectState[i].y, 1, -1, 0, h)})
+                                $('#face_wrap_2').css({left:map_range(detectState[i].x, 1, -1, 0, w)})
+                                $('#face_wrap_2').css({'transform':'rotateX('+ map_range(detectState[i].rx, 1, -1, 90, -90)  +'deg) \
+                                                rotateY('+ map_range(detectState[i].ry, 1, -1, 90, -90)  +'deg) \
+                                                rotateZ('+ map_range(detectState[i].rz, 1, -1, 90, -90)  +'deg) translateZ(-75px)'}) 
+                            }
+                            if(i == 2){
+                                Body.setPosition(face3, { x: map_range(detectState[i].x, 1, -1, 0, w) , y:map_range(detectState[i].y, 1, -1, 0, h)}); 
+                                face_change(detectState[2], 2)
+                                $('#face_wrap_3').css({top:map_range(detectState[i].y, 1, -1, 0, h)})
+                                $('#face_wrap_3').css({left:map_range(detectState[i].x, 1, -1, 0, w)})
+                                $('#face_wrap_3').css({'transform':'rotateX('+ map_range(detectState[i].rx, 1, -1, 90, -90)  +'deg) \
+                                                rotateY('+ map_range(detectState[i].ry, 1, -1, 90, -90)  +'deg) \
+                                                rotateZ('+ map_range(detectState[i].rz, 1, -1, 90, -90)  +'deg) translateZ(-75px)'}) 
+                            }
+                            if(i == 3){
+                                Body.setPosition(face4, { x: map_range(detectState[i].x, 1, -1, 0, w) , y:map_range(detectState[i].y, 1, -1, 0, h)}); 
+                                face_change(detectState[3], 3)
+                                $('#face_wrap_4').css({top:map_range(detectState[i].y, 1, -1, 0, h)})
+                                $('#face_wrap_4').css({left:map_range(detectState[i].x, 1, -1, 0, w)})
+                                $('#face_wrap_4').css({'transform':'rotateX('+ map_range(detectState[i].rx, 1, -1, 90, -90)  +'deg) \
+                                                rotateY('+ map_range(detectState[i].ry, 1, -1, 90, -90)  +'deg) \
+                                                rotateZ('+ map_range(detectState[i].rz, 1, -1, 90, -90)  +'deg) translateZ(-75px)'}) 
+                            }
 
-                    CVD.ctx.strokeRect(faceCoo.x, faceCoo.y, faceCoo.w, faceCoo.h);
-
-                    var center_x = 500
-                    var center_xy = 500
-                    map_range(detectState[i].x, 1, -1, 0, h)
-                    map_range(detectState[i].y, 1, -1, 0, h)
+                            CVD.ctx.strokeRect(faceCoo.x, faceCoo.y, faceCoo.w, faceCoo.h);
+                        }
 
 
                 }else{
-                    hideface1++
-                    if(hideface1>1000){
-                        smovingamount = 0
-                        console.log('disappear!')
-                        $('#face_wrap').css({top:-100})
-                        $('#face_wrap').css({left:-100})
+                    hideface[i] = hideface[i] + 1
+                    // if(hideface[i]>10){
+                    //     movingamount = 0
+                    // }
+                    if(hideface[i]>100){
                         $('#face_2').addClass('face_ani')
+                            if(i == 0){
+                                Body.setPosition(face1, { x: -10000 , y: -10000}); 
+                                $('#face_wrap_1').css({top:-100})
+                                $('#face_wrap_1').css({left:-100})
+                            }
+                            if(i == 1){
+                                Body.setPosition(face2, { x: -10000 , y: -10000});  
+                                $('#face_wrap_2').css({top:-100})
+                                $('#face_wrap_2').css({left:-100})
+                            }
+                            if(i == 2){
+                                Body.setPosition(face3, { x: -10000 , y: -10000});  
+                                $('#face_wrap_3').css({top:-100})
+                                $('#face_wrap_3').css({left:-100}) 
+                            }
+                            if(i == 3){
+                                Body.setPosition(face4, { x: -10000 , y: -10000});  
+                                $('#face_wrap_4').css({top:-100})
+                                $('#face_wrap_4').css({left:-100})
+                            }
                     };
                 }
             }
@@ -98,14 +140,15 @@ function angle(cx, cy, ex, ey) {
 
 
 
-or_y = 0
-counter = 0
-function face_change(detectState){
-                        if(Math.abs(detectState[0].ry - or_y) > 0.1){
-                            or_y = detectState[0].ry
-                            counter++
-                            $('#face_wrap>div').hide()
-                            $('#face_' + (counter%4+1)).show()
+or_y = [0,0,0,0]
+counter = [0,0,0,0]
+function face_change(detectState, i){
+                        if(Math.abs(detectState.ry - or_y[i]) > 0.1){
+                            or_y[i] = detectState.ry
+                            counter[i]++
+                            $('#face_wrap_'+(i+1)+'>div').hide()
+                            $('#face_wrap_'+(i+1)+'> #face_' + (counter[i]%4+1)).show()
+                            $('#face_wrap_'+(i+1)+'> #face_' + (counter[i]%4+5)).show()
                         }
 
 }

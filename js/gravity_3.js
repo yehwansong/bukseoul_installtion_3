@@ -49,6 +49,9 @@ var obs = []
     var blue_fric = 0.1
     var red_fric = 0.05
     var yellow_fric = 0.01
+
+    var skewed_red = Vertices.fromPath('270.7,0 91,0 179.7,83.5 359.4,83.5')
+    var fuck_2 = Vertices.fromPath('239.6,83.5 119.8,83.5 119.8,196.4 0,196.4 0,252.8 0,252.8 0,254.4 359.4,254.4 359.4,196.4 239.6,196.4')
     var render_setting = [
         // blue
         {friction: 1, frictionAir: blue_fric, restitution : 0, render: {fillStyle: '#0d3388'}},

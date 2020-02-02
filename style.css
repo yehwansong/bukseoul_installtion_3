@@ -32,19 +32,25 @@
       body{
         transform: scale(0.9);
       }
-      #face_wrap{
+      #face_wrap_1,
+      #face_wrap_2,
+      #face_wrap_3,
+      #face_wrap_4{
         transform: translateX(-50%);
         width: 150px;
         height: 150px;
         position: absolute;
-        left: 0;
-        top: 0;
+        margin-left:-75px;
+        margin-top:-75px;
         z-index: 1000;
       }
-      #face_wrap>div{
+      #face_wrap_1>div,
+      #face_wrap_2>div,
+      #face_wrap_3>div,
+      #face_wrap_4>div{
         position: absolute;
-        left: 0;
-        top: 0;
+        margin-left:0px;
+        margin-top:0px;
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -60,19 +66,44 @@
       #face_1{
         background-image: url(face-01.png);
         display: none;
+        opacity: 0;
       }
       #face_2{
         background-image: url(face-02.png);
         display: block;
+        opacity: 0;
         transition: 1s cubic-bezier(0,.71,.21,1.45)
       }
       #face_3{
         background-image: url(face-03.png);
         display: none;
+        opacity: 0;
       }
       #face_4{
         background-image: url(face-04.png);
         display: none;
+        opacity: 0;
+      }
+      #face_5{
+        background-image: url(face-05.png);
+        display: none;
+        opacity: 0;
+      }
+      #face_6{
+        background-image: url(face-06.png);
+        display: block;
+        opacity: 0;
+        transition: 1s cubic-bezier(0,.71,.21,1.45)
+      }
+      #face_7{
+        background-image: url(face-07.png);
+        display: none;
+        opacity: 0;
+      }
+      #face_8{
+        background-image: url(face-08.png);
+        display: none;
+        opacity: 0;
       }
       .abs_show{
         opacity:1 !important;
