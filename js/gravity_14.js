@@ -336,7 +336,7 @@ var chain_wrap =
 }
 //extra
 
-    var ground = Bodies.rectangle(w/2, h+25, w, 50, { isStatic: true })
+    // var ground = Bodies.rectangle(w/2, h+25, w, 50, { isStatic: true })
     var wall1 = Bodies.rectangle(-25, h/2, 50, h, { isStatic: true })
     var wall2 = Bodies.rectangle(w+25, h/2, 50, h, { isStatic: true })
     var face1 = Bodies.circle(100, -100, 75, { isStatic: true ,render: {fillStyle: '#00913a'}});
@@ -345,7 +345,7 @@ var chain_wrap =
     var face4 = Bodies.circle(100, -100, 75, { isStatic: true ,render: {fillStyle: 'black'}});
 
 
-    World.add(world, [ground, wall1, wall2])
+    World.add(world, [wall1, wall2])
     World.add(world, [face1,face2,face3,face4])
 
 
@@ -387,13 +387,13 @@ function detectcollision_in(){
 
     setTimeout(function(){reset_field()}, 35000);
     function reset_field(){
-        Body.setPosition(ground, { x: w/2, y: 2*h+25}); 
+        // Body.setPosition(ground, { x: w/2, y: 2*h+25}); 
         setTimeout(function(){
             for (var i = obs.length - 1; i >= 0; i--) {
                 Matter.Composite.remove(world, obs[i])
             }
             adding()
-            Body.setPosition(ground, { x: w/2, y: h+25});  
+            // Body.setPosition(ground, { x: w/2, y: h+25});  
             setTimeout(function(){reset_field()}, 35000);
         }, 10000)
     }
