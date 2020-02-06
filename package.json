@@ -25,5 +25,9 @@
     "type": "git",
     "url": "git+https://github.com/jeeliz/jeelizFaceFilter.git"
   },
-  "version": "1.1.0"
+  "version": "1.1.0",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "util": "^0.12.1"
+  }
 }
